@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//src/controllers/mainh.py=utf8
+encoding//src/controllers/models.py=utf8
+encoding//src/controllers/xlrd/sheet.py=cp1252
+encoding//src/main.py=utf8

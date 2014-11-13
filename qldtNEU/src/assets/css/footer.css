@@ -1,0 +1,57 @@
+
+#footerTitle{
+	padding:0px;
+    position: fixed;
+    left: 0px;
+    height:50px;
+    width:300px;
+    bottom:0px;
+    background-color:#69b4d1;
+	z-index: 100;
+}
+#footerTitle a{
+	font-family: "Segoe UI";
+    text-transform: uppercase;
+    font-size: 1.6em;
+    font-style:normal;
+    font-weight: 700;
+	color: #FFF;
+	text-align:center;
+	padding-top:10px;
+	position:absolute;
+}
+#footerBar{
+	padding:0px;
+    position: fixed;
+    left: 0px;
+    height:40px;
+    width:100%;
+    bottom:0px;
+    background-color:#000000;
+    z-index: 90;    
+}
+#stuInfo{
+	margin-left:300px;
+	padding:8px 0px 0px 10px;
+	width:350px;
+}
+#stuInfo p{
+    font-size: 0.9em;
+	color: #FFF;
+	line-height: 60%;
+}
+#stuInfo a{
+    font-size: 0.8em;
+	color: #FFF;
+	line-height: 60%;
+}
+.icon{
+	position:relative;
+	float:right;
+	text-align:right;
+	top:-40px;
+	font-size: 1.5em;
+	padding: 5px 10px 0px 0px;
+	width:50px;
+}
+

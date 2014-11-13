@@ -1,0 +1,40 @@
+@media screen and (max-width : 1000px){
+  #mainMenu{
+    visibility: hidden; 
+  }
+  .sections{
+    padding-right:50px;
+    margin-right: 0px;
+    margin-left:0px;
+  }
+  #footerTitle a{
+   font-size:1.3em; 
+  }
+  #footerTitle{
+    height:80px;
+    width:150px;
+  }
+  .icon{
+  font-size:1.2em;
+    top:-78px;
+    padding-right:0px;
+    padding-left:0px !important;
+    width:40px;
+  }
+  .iconDownload{
+    top:-88.5px ;
+    font-size:2em;
+  }
+  #stuInfo{
+    margin-top:31px;
+    margin-left:147px;
+  }
+  #footerBar{
+  height:71px
+  }
+  #downloadMenu{
+    right:145px;
+    bottom: 90px;
+  }
+
+}

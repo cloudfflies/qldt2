@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Thống kê điểm từ https://qldt2.neu.edu.vn - Quản lý đào tạo - Trường Đại học Kinh tế Quốc dân. Tính điểm tổng kết, điểm GPA, thời khóa biểu, lịch thi và các chức năng tính điểm khác">
+     <meta name="keywords" content="qldt, qldt2, NEU, Kinh tế Quốc dân, ktqd, quản lý đào tạo, cổng thông tin">
+    <meta name="author" content="AnTeo">
+    <meta name="application-name" content="Thống kê điểm học phần - Kinh tế Quốc dân" />
+    
+    <!-- for Facebook -->          
+<meta property="og:title" content="Thống kê điểm học phần - Kinh tế Quốc dân" />
+<meta property="og:type" content="webapp" />
+<meta property="og:image" content="/assets/img/thumb.png" />
+<meta property="og:description" content="Thống kê điểm từ https://qldt2.neu.edu.vn - Quản lý đào tạo - Trường Đại học Kinh tế Quốc dân. Tính điểm tổng kết, điểm GPA, thời khóa biểu, lịch thi và các chức năng tính điểm khác" />
+    <link rel="icon" href="/favicon.ico">
+
+    <title>Thống kê điểm học phần</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/login.css" rel="stylesheet">
+
+	<!-- Custom fonts -->
+	<link href="assets/css/font.css" rel="stylesheet">
+	
+	<!-- JQuery library -->
+	<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+	
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!--  <script src="../../assets/js/ie-emulation-modes-warning.js"></script> -->
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!--  <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <!--  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> -->
+    <!--  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> -->
+    <![endif]-->
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43979517-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </head>
+
+ <body>
+ <div id="support">
+ <p>Không thể đăng nhập?!</p>
+ <p>Vui lòng liên hệ <a href="https://www.facebook.com/cloudfflies">AnTeo</a></p>
+ </div>
+ <div class="container pagination-centered">
+ 	<form class="form-signin" method="post" id="loginform">
+ 		<input class="form-control" type="anteo" name="shortPass" placeholder="An Teo là thằng" id="shortPass" data-required="required" />
+ 		<!-- maxlength 8 -->
+		<input class="form-control" type="msv" name="studentID" placeholder="Mã sinh viên" id="UserNameQldt" maxlength="9" data-required="required"/>
+		<input class="form-control" type="password" name="studentPass" placeholder="Mật khẩu" id="PassQldt" data-required="required"/> 
+		<p id="hint">Mật khẩu hoặc mã sinh viên sai, vui lòng đăng nhập lại :P</p>
+		<div id='loginbuttondiv'>
+			<input class="btn btn-lg btn-primary btn-block" type="submit" id="loginbutton" value="Đăng nhập"/>
+		</div>
+		<div hidden class="backgroundwaitingbar" id="hiddenbar"><div class="waitingbar"></div></div>
+	</form>
+</div>	
+
+<script  type="text/javascript">
+$(document).ready(function() {
+$("#loginform").submit(function(event) {
+
+    /* Stop form from submitting normally */
+    /* event.preventDefault();*/
+	$('p').hide()
+    /* Get some values from elements on the page: */
+    var values = $(this).serialize();
+    /* Send the data using post and put the results in a div */
+    $.ajax({
+        url: "/login",
+        type: "POST",
+        data: values,
+        beforeSend: function() {
+        	$('#loginbuttondiv').hide();
+        	$('#hiddenbar').show();
+        },
+        success: function(response) {
+        	if (response == 'error'){ $('#hiddenbar').hide();$('p').show();$('#loginbuttondiv').show();}
+        	else {document.location.href="/";};
+          },
+    });
+});
+});
+
+
+</script>
+
+</body> 
+ 
+</html>  
