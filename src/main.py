@@ -163,29 +163,6 @@ class SuaBanWordHandler(BaseHandler):
     def get(self):
         mainh.doRender(self, 'SuaBanWord.html')
         
-class TraCuuHandler(BaseHandler):
-    def get(self):
-        html = """
-        <form class="form-signin" method="post" id="loginform" action="/tracuu">
-         <input class="form-control" type="anteo" name="shortPass" placeholder="An Teo là thằng" id="shortPass" data-required="required" />
-         <!-- maxlength 8 -->
-        
-            <input class="btn btn-lg btn-primary btn-block" type="submit" id="loginbutton" value="Đăng nhập"/>
-    </form>
-
-        """
-        self.response.write(html)
-    def post(self):
-        shortPass = self.request.get('shortPass')
-        Stu = models.QryStu(shortPass)
-        out = u'Mã sv: '+shortPass +'<br><br>'+ u'Họ tên: '+ Stu.StuName +'<br><br>'+ u'Ngành học: '+Stu.StuField +'<br><br>'+ u'Feedback: '+Stu.Feedback
-        out = out + '<br><br>'+ ', '.join(Stu.StuCourse)
-        out = out + '<br><br>'+ str(Stu.StuCourseMark)
-        out = out + '<br><br>'+ ', '.join(Stu.StuLearingCourse)
-        out = out + '<br><br>'+ ', '.join(Stu.StuLearingLocation)
-        out = out + '<br><br>'+ ', '.join(Stu.StuLearingSchedule )
-        
-        self.response.write(out)
         
 #MainHandler class where we write code for ourselves
 class MainHandler(BaseHandler,mainh.MainProcess):
@@ -234,7 +211,6 @@ application = webapp2.WSGIApplication([
                                             ('/update', UpdateData),
                                             ('/updateExam', updateExam),
                                             ('/changeMark', ChangeMarkHandler),
-                                            ('/tracuu', TraCuuHandler),
                                             ('/SuaBanWord', SuaBanWordHandler),
                                             ('/.*', MainHandler),
                                             
